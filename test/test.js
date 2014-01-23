@@ -20,7 +20,14 @@
   $window.resizeDimension('width', function () {
     console.log('width options');
   }, {
-    throttler: function (f) { return f; }
+    throttler: function (f) {
+      console.log('throttling width options handler');
+      // fake wrapping in throttling function...
+      return function () {
+        console.log('throttled...');
+        f();
+      }
+    }
   });
 
   $window.resizeDimension({
