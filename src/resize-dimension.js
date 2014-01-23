@@ -38,6 +38,8 @@
     options.dimension = dimension;
     options.handler = handler;
 
+    this.options = options;
+
     if ($.isFunction(options.changed)) {
       this.changed = options.changed;
     }
@@ -47,8 +49,8 @@
     this.previousValue = this.value();
 
     var proxied = $.proxy(this.handle, this);
-    if (this.throttler) {
-      return this.throttler(proxied);
+    if (options.throttler) {
+      return options.throttler(proxied);
     }
     return proxied;
   };
@@ -73,10 +75,12 @@
     }
   };
 
-  var $resizeDimension = function (dimension, handler) {
+  var $resizeDimension = function () {
+    var args = Array.prototype.slice.call(arguments);
     return this.each( function() {
       var $el = $(this);
-      return $el.on('resize', ResizeDimension($el)(dimension, handler));
+      var init = new ResizeDimension($el);
+      return $el.on('resize', init.apply(null, args));
     });
   };
 
