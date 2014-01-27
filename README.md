@@ -13,7 +13,11 @@ Download, or install via Bower:
 
 `$ bower install resize-dimension`
 
-Include `src/resize-dimension.js` in your scripts.
+Include `src/resize-dimension.js` on your page.
+
+Supports AMD via UMD.
+
+Depends on jQuery.
 
 ## Usage
 
