@@ -2,7 +2,12 @@
 
 A jQuery plugin providing unique resize events for each dimension (width or height).
 
-# Install
+## Example
+
+Resize and see console output on the test page: [http://adjohnson916.github.io/resize-dimension.js/test/](http://adjohnson916.github.io/resize-dimension.js/test/).
+
+
+## Install
 
 Download, or install via Bower:
 
@@ -10,7 +15,7 @@ Download, or install via Bower:
 
 Include `src/resize-dimension.js` in your scripts.
 
-# Usage
+## Usage
 
 See `test/test.js` for examples.
 
