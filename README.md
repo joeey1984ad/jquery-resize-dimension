@@ -15,6 +15,8 @@ Include `src/resize-dimension.js` in your scripts.
 See `test/test.js` for examples.
 
 ```js
+var $window = $(window);
+
 /*
  * Simple use.
  */
