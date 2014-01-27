@@ -17,7 +17,7 @@ Include `src/resize-dimension.js` on your page.
 
 Supports AMD via UMD.
 
-Depends on jQuery.
+Depends on jQuery (or compatible library such as Zepto.js).
 
 ## Usage
 
