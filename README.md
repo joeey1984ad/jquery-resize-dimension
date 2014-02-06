@@ -26,6 +26,18 @@ See `test/test.js` for examples.
 ```js
 var $window = $(window);
 
+/**
+ * Event use
+ */
+ResizeDimension.bind('width');
+
+$window.on('resize-width', function () {
+  console.log('resize-width event');
+});
+
+// or pass options
+//ResizeDimension.bind('width', {});
+
 /*
  * Simple use.
  */

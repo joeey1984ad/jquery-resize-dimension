@@ -9,6 +9,8 @@
   }
 }(this, function ($) {
 
+  var $window = $(window);
+
   var ResizeDimension = function ($el, dimension, handler, options) {
 
     if (! (this instanceof ResizeDimension)) {
@@ -24,6 +26,16 @@
       return $.proxy(this.init, this);
     }
 
+  };
+
+  ResizeDimension.bound = {};
+
+  ResizeDimension.bind = function (dimension, options) {
+    if (ResizeDimension.bound[dimension]) return;
+    ResizeDimension.bound[dimension] = true;
+    $window.resizeDimension(dimension, function () {
+      $window.trigger('resize-' + dimension);
+    }, options);
   };
 
   ResizeDimension.prototype.init = function (dimension, handler, options) {
