@@ -19,14 +19,15 @@
 
     this.$el = $el;
 
-    if (dimension) {
-      return this.init(dimension, handler, options);
-    }
-    else {
-      return $.proxy(this.init, this);
-    }
+    this.init(dimension, handler, options);
 
+    return this;
   };
+
+  /**
+   * Stub - overridden on #init()
+   */
+  ResizeDimension.prototype.onResize = function () {};
 
   ResizeDimension.bound = {};
 
@@ -62,15 +63,16 @@
 
     var proxied = $.proxy(this.handle, this);
     if (options.throttler) {
-      return options.throttler(proxied);
+      this.onResize = options.throttler(proxied);
     }
-    return proxied;
+    else {
+      this.onResize = proxied;
+    }
   };
 
   ResizeDimension.prototype.normalize = function (dimension) {
     return dimension;
   };
-
   ResizeDimension.prototype.changed = function (previous, current) {
     return previous !== current;
   };
@@ -91,8 +93,9 @@
     var args = Array.prototype.slice.call(arguments);
     return this.each( function() {
       var $el = $(this);
-      var init = new ResizeDimension($el);
-      return $el.on('resize', init.apply(null, args));
+      args = [$el].concat(args);
+      var instance = ResizeDimension.apply(null, args);
+      $el.on('resize', $.proxy(instance.onResize, instance));
     });
   };
 
