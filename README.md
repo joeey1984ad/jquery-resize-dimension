@@ -4,7 +4,7 @@ A jQuery plugin providing unique resize events for each dimension (width or heig
 
 ## Example
 
-Resize and see console output on the test page: [http://adjohnson916.github.io/resize-dimension.js/test/](http://adjohnson916.github.io/resize-dimension.js/test/).
+Resize and see console output on the test page: [http://adjohnson916.github.io/jquery-resize-dimension/test/](http://adjohnson916.github.io/jquery-resize-dimension/test/).
 
 
 ## Install
