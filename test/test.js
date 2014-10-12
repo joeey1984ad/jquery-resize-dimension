@@ -56,10 +56,10 @@
 
   $window.on('resize', ResizeDimension($window, 'width', function () {
     console.log('width raw');
-  }));
+  }).onResize);
 
   $window.on('resize', ResizeDimension($window, 'height', function () {
     console.log('height raw');
-  }));
+  }).onResize);
 
 })();
