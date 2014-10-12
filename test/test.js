@@ -54,11 +54,11 @@
    * Raw API.
    */
 
-  $window.on('resize', ResizeDimension($window)('width', function () {
+  $window.on('resize', ResizeDimension($window, 'width', function () {
     console.log('width raw');
   }));
 
-  $window.on('resize', ResizeDimension($window)('height', function () {
+  $window.on('resize', ResizeDimension($window, 'height', function () {
     console.log('height raw');
   }));
 
