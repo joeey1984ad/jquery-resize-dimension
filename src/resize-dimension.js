@@ -85,7 +85,7 @@
     var currentValue = this.value();
     if (this.changed(this.previousValue, currentValue)) {
       this.previousValue = currentValue;
-      return this.handler.apply(this.$el, e);
+      return this.handler.call(this.$el, e);
     }
   };
 
